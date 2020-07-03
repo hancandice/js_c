@@ -21,10 +21,24 @@ function askForName() {
   form.addEventListener("submit", handleSubmit);
 }
 
+function deleteGreetings(event) {
+  const deleteConfirm = confirm(
+    "If you click 'confirm', all your data will be completely deleted 😱"
+  );
+  if (deleteConfirm === true) {
+    localStorage.clear();
+  }
+  location.reload();
+}
+
 function paintGreeting(text) {
   form.classList.remove(SHOWING_CN);
   greeting.classList.add(SHOWING_CN);
-  greeting.innerText = `Hello ${text}`;
+  greeting.innerText = `Hello 👋🏼 ${text} 🍀`;
+  const delBtn = document.createElement("button");
+  greeting.appendChild(delBtn);
+  delBtn.innerText = "🔥";
+  delBtn.addEventListener("click", deleteGreetings);
 }
 
 function loadName() {

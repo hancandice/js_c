@@ -4,18 +4,47 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 
 const TODOS_LS = "toDos";
 
-const toDos = [];
+let toDos = [];
+
+function deleteToDo(event) {
+  const btn = event.target;
+  const li = btn.parentNode;
+  toDoList.removeChild(li);
+  const cleanToDos = toDos.filter(function (toDo) {
+    return toDo.id !== parseInt(li.id);
+  });
+  toDos = cleanToDos;
+  saveToDos();
+}
 
 function saveToDos() {
   localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
 }
 
+// function getNewID() {
+//   const IDs = [];
+//   const loadedToDos = localStorage.getItem(TODOS_LS);
+//   if (toDos.length === 0) {
+//     return 1;
+//   } else {
+//     const parsedToDos = JSON.parse(loadedToDos);
+//     parsedToDos.forEach(function (toDo) {
+//       IDs.push(toDo.id);
+//     });
+//     return Math.max(...IDs) + 1;
+//   }
+// }
+
 function paintToDo(text) {
   const li = document.createElement("li");
   const delBtn = document.createElement("button");
   const span = document.createElement("span");
-  const newID = toDos.length + 1;
-  delBtn.innerText = "🚫";
+  const newID =
+    toDoList.lastElementChild === null
+      ? 1
+      : parseInt(toDoList.lastElementChild.id) + 1;
+  delBtn.innerText = "🔥";
+  delBtn.addEventListener("click", deleteToDo);
   span.innerText = text;
   li.appendChild(delBtn);
   li.appendChild(span);

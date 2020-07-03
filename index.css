@@ -106,6 +106,10 @@ li > button {
   transition: font-size 0.3s ease-in-out;
 }
 
+*:focus {
+  outline: none;
+}
+
 li > button:hover,
 .greetings > button:hover {
   /* background-color: transparent;

@@ -22,9 +22,7 @@ function askForName() {
 }
 
 function deleteGreetings(event) {
-  const deleteConfirm = confirm(
-    "If you click 'confirm', all your data will be completely deleted 😱"
-  );
+  const deleteConfirm = confirm(`Click "OK" to delete all data completely. 😱`);
   if (deleteConfirm === true) {
     localStorage.clear();
   }

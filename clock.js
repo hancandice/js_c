@@ -3,10 +3,15 @@ const clockContainer = document.querySelector(".js-clock"),
 
 function getTime() {
   const date = new Date();
+  const month = date.getMonth();
+  const jour = date.getDate();
+  const dayArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const day = dayArray[date.getDay()];
   const hours = date.getHours();
   const minutes = date.getMinutes();
   const seconds = date.getSeconds();
-  clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours}:${
+  clockTitle.innerText = `${month}/${jour}(${day})
+  ${hours < 10 ? `0${hours}` : hours}:${
     minutes < 10 ? `0${minutes}` : minutes
   }:${seconds < 10 ? `0${seconds}` : seconds}`;
 }

@@ -39,11 +39,12 @@ h1 {
 }
 
 .js-clock {
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
-  font-size: 50px;
+  margin-top: -30px;
+  font-size: 45px;
 }
 
 input {
@@ -56,6 +57,7 @@ input {
   font-size: 18px;
   color: whitesmoke;
 }
+
 ::placeholder {
   color: whitesmoke;
 }
@@ -65,8 +67,8 @@ input:focus {
 }
 
 .greetings {
-  font-size: 40px;
-  margin-top: -20px;
+  font-size: 45px;
+  margin-top: -40px;
   color: white;
   animation: fadeIn 1s ease-in;
 }
@@ -120,7 +122,7 @@ li > button:hover,
   border: none;
   text-align: center; */
   font-size: 12px;
-  animation: spin 1s ease-in-out 100;
+  animation: spin 800ms ease-in-out infinite;
 }
 
 @keyframes spin {

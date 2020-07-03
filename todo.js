@@ -59,21 +59,26 @@ function paintToDo(text) {
 }
 
 function handleSubmit(event) {
-  const arrayFromStorage = JSON.parse(localStorage.getItem(TODOS_LS));
-  const arrayLength = arrayFromStorage.length;
-  event.preventDefault();
   const currentValue = toDoInput.value;
-  if (arrayLength < 7) {
+  event.preventDefault();
+  const loadedToDos = localStorage.getItem(TODOS_LS);
+
+  if (loadedToDos === null) {
     paintToDo(currentValue);
     toDoInput.value = "";
   } else {
-    window.alert(
-      "You can create up to 7 lists at once. To add to another to-do list, click the flame button 🔥 to delete the finished list."
-    );
-    toDoInput.value = "";
+    const parsedToDos = JSON.parse(loadedToDos);
+    const toDoArrayLength = parsedToDos.length;
+    if (toDoArrayLength < 7) {
+      paintToDo(currentValue);
+      toDoInput.value = "";
+    } else {
+      window.alert(
+        "You can create up to 7 lists at once. To add another to-do list, click the flame button 🔥 to delete the finished list."
+      );
+      toDoInput.value = "";
+    }
   }
-  // paintToDo(currentValue);
-  // toDoInput.value = "";
 }
 
 function loadToDos() {

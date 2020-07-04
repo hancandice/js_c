@@ -1,10 +1,10 @@
 const body = document.querySelector("body");
 
-const IMG_NUMBER = 9;
+const IMG_NUMBER = 18;
 
 function paintImage(imgNumber) {
   const image = new Image();
-  image.src = `/pengimages/${imgNumber}.jpg`;
+  image.src = `k-images/${imgNumber}.jpg`;
   image.classList.add("bgImage");
   body.appendChild(image);
 }

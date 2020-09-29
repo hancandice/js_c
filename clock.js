@@ -3,7 +3,7 @@ const clockContainer = document.querySelector(".js-clock"),
 
 function getTime() {
   const date = new Date();
-  const month = date.getMonth();
+  const month = date.getMonth() + 1;
   const jour = date.getDate();
   const dayArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const day = dayArray[date.getDay()];
